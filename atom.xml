@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-03-03T15:25:53+08:00</updated>
+  <updated>2013-03-03T18:07:24+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -14,11 +14,28 @@
 
   
   <entry>
-    <title type="html"><![CDATA[github blog]]></title>
+    <title type="html"><![CDATA[Guangzhou Toastmasters Club]]></title>
+    <link href="http://alanzhucn.github.com/blog/2013/03/03/guangzhou-toastmasters-club/"/>
+    <updated>2013-03-03T15:44:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2013/03/03/guangzhou-toastmasters-club</id>
+    <content type="html"><![CDATA[<p>Toastmasters Club introduction.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First blog at github]]></title>
     <link href="http://alanzhucn.github.com/blog/2013/03/03/first-page/"/>
     <updated>2013-03-03T15:12:00+08:00</updated>
     <id>http://alanzhucn.github.com/blog/2013/03/03/first-page</id>
-    <content type="html"><![CDATA[<p>ĞÂ¿ªÕâ¸ö²©¿Í¡£ ÄÚÈİÒÔÁ½¸ö¶«Î÷ÎªÖ÷£º 1¡¢ ¼¼Êõ 2¡¢Toastmasters¡£</p>
+    <content type="html"><![CDATA[<p>New established blog in Github.</p>
+
+<p>Two items are included.</p>
+
+<ol>
+<li>tech æŠ€æœ¯</li>
+<li>Toastmasters Club æ¼”è®²å’Œæ¼”è®²ä¿±ä¹éƒ¨</li>
+</ol>
+
 ]]></content>
   </entry>
   
