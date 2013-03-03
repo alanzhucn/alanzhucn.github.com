@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-03-03T23:43:49+08:00</updated>
+  <updated>2013-03-04T00:31:20+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[github_how_to_delete_repository]]></title>
+    <link href="http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository/"/>
+    <updated>2013-03-04T00:25:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository</id>
+    <content type="html"><![CDATA[<p>How to delete a repository from Github 2013-03-04</p>
+
+<p>click and go the repository to be deleted.<br/>
+then click the &#8220;settings&#8221;</p>
+
+<p>or  github.com/username/repository_name/settings</p>
+
+<p>there is a &#8220;denger zone&#8221; pannel at the end of the page.<br/>
+find &#8220;delete this repository&#8221; and click &#8220;delete this repository&#8221; <br/>
+follow the instruction.</p>
+
+<p>reference:  [github如何删除一个repository(仓库)] [http://www.yongzhi.info/2012/04/652.html]<br/>
+note: this is obsolte now, since new version of github is deployed.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Guangzhou Toastmasters Club]]></title>
