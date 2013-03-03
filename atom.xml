@@ -2,15 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Alanzhu's Blog]]></title>
-  <link href="http://alanzhucn.github.com/alanzhucn.github.com/atom.xml" rel="self"/>
-  <link href="http://alanzhucn.github.com/alanzhucn.github.com/"/>
-  <updated>2013-03-03T14:53:16+08:00</updated>
-  <id>http://alanzhucn.github.com/alanzhucn.github.com/</id>
+  <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
+  <link href="http://alanzhucn.github.com/"/>
+  <updated>2013-03-03T15:25:53+08:00</updated>
+  <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[github blog]]></title>
+    <link href="http://alanzhucn.github.com/blog/2013/03/03/first-page/"/>
+    <updated>2013-03-03T15:12:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2013/03/03/first-page</id>
+    <content type="html"><![CDATA[<p>新开这个博客。 内容以两个东西为主： 1、 技术 2、Toastmasters。</p>
+]]></content>
+  </entry>
   
 </feed>
