@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-03-04T00:31:20+08:00</updated>
+  <updated>2013-03-04T00:50:00+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -14,9 +14,9 @@
 
   
   <entry>
-    <title type="html"><![CDATA[github_how_to_delete_repository]]></title>
+    <title type="html"><![CDATA[Github How To Delete Repository]]></title>
     <link href="http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository/"/>
-    <updated>2013-03-04T00:25:00+08:00</updated>
+    <updated>2013-03-04T00:00:00+08:00</updated>
     <id>http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository</id>
     <content type="html"><![CDATA[<p>How to delete a repository from Github 2013-03-04</p>
 
@@ -29,7 +29,7 @@ then click the &#8220;settings&#8221;</p>
 find &#8220;delete this repository&#8221; and click &#8220;delete this repository&#8221; <br/>
 follow the instruction.</p>
 
-<p>reference:  [github如何删除一个repository(仓库)] [http://www.yongzhi.info/2012/04/652.html]<br/>
+<p>reference:  <a href="http://www.yongzhi.info/2012/04/652.html">github如何删除一个repository(仓库)</a><br/>
 note: this is obsolte now, since new version of github is deployed.</p>
 ]]></content>
   </entry>
