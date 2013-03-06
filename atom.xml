@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-03-04T00:50:00+08:00</updated>
+  <updated>2013-03-06T23:12:51+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -14,9 +14,36 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Github How To Delete Repository]]></title>
+    <title type="html"><![CDATA[about coding]]></title>
+    <link href="http://alanzhucn.github.com/blog/2013/03/06/about-coding/"/>
+    <updated>2013-03-06T08:21:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2013/03/06/about-coding</id>
+    <content type="html"><![CDATA[<p>遐想一下，</p>
+
+<ol>
+<li>语言设定一个 tricky 关键字 或者 符号， 在使用了tricky的地方， 用一下这个关键字，这样可以追踪tricky数目</li>
+</ol>
+
+
+<p>2。代码打分， 看代码的人可以给代码打分。</p>
+
+<ol>
+<li><p>列表
+队列 思考   ， reference, pointer 或者 index</p>
+
+<pre><code>   index最节省内存，也是通用性不高。
+</code></pre></li>
+<li><p>考虑
+ 什么可以提高我们的开发效率 ： 哪些是瓶颈。</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[github: how to delete repository]]></title>
     <link href="http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository/"/>
-    <updated>2013-03-04T00:00:00+08:00</updated>
+    <updated>2013-03-04T00:25:00+08:00</updated>
     <id>http://alanzhucn.github.com/blog/2013/03/04/github-how-to-delete-repository</id>
     <content type="html"><![CDATA[<p>How to delete a repository from Github 2013-03-04</p>
 
