@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-03-08T23:10:48+08:00</updated>
+  <updated>2013-06-28T00:24:06+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[take actions]]></title>
+    <link href="http://alanzhucn.github.com/blog/2013/06/28/take-actions/"/>
+    <updated>2013-06-28T00:22:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2013/06/28/take-actions</id>
+    <content type="html"><![CDATA[<p>Visit github more often..</p>
+
+<p>记得自己的方向。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[how many lines of codes I can write in 6 hours]]></title>
