@@ -4,7 +4,7 @@
   <title><![CDATA[Alanzhu's Blog]]></title>
   <link href="http://alanzhucn.github.com/atom.xml" rel="self"/>
   <link href="http://alanzhucn.github.com/"/>
-  <updated>2013-06-28T00:24:06+08:00</updated>
+  <updated>2014-01-16T00:34:08+08:00</updated>
   <id>http://alanzhucn.github.com/</id>
   <author>
     <name><![CDATA[AlanZHU]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[centos_apache_cannot_be_accessed_on_others_machine]]></title>
+    <link href="http://alanzhucn.github.com/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/"/>
+    <updated>2014-01-15T23:53:00+08:00</updated>
+    <id>http://alanzhucn.github.com/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine</id>
+    <content type="html"><![CDATA[<p>缘起：<br/>
+在VPS上面安装的CentOS装了个Apache，发现只能本地访问， 其他机器访问不了。</p>
+
+<p>查找原因：<br/>
+开始猜测是否被墙了， 后来发现墙外也访问不了。 于是猜想是否是被访问墙挡住了。
+没有查到log， 尝试停止防火墙，</p>
+
+<p>/etc/init.d/iptables stop</p>
+
+<p>下面是运行log</p>
+
+<h1>/etc/init.d/iptables stop</h1>
+
+<p>iptables: Setting chains to policy ACCEPT: filter nat      [  OK  ]
+iptables: Flushing firewall rules:                         [  OK  ]
+iptables: Unloading modules:                               [  OK  ]</p>
+
+<p>停止后发现可以访问， 定位成功。</p>
+
+<p>解决方法：</p>
+
+<p>修改iptables配置文件，添加80端口。原先开启了22端口给ssh，复制该行，把22改成80<br/>
+/etc/sysconfig/iptables</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT</p>
+
+<p>修改后：</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT
+-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p>修改后重启：</p>
+
+<p>/etc/init.d/iptables restart</p>
+
+<p>搞定。 修改过程中， 想过复制网上的解决办法，
+诸如： http://os.51cto.com/art/201103/249398.htm 提到的 <br/>
+-A RH-Firewall-1-INPUT -m state &#8211;state NEW -m tcp -p tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p> 修改后无效， 估计是参数次序问题。不如照葫芦画瓢，根据可用的配置来修改。</p>
+
+<p> 小结一下iptables配置和命令： 需要root权限 :)</p>
+
+<ol>
+<li><p>配置文件   /etc/sysconfig/iptables</p></li>
+<li><p>关闭、打开、重启 防火墙</p></li>
+</ol>
+
+
+<p>  /etc/init.d/iptables stop<br/>
+  /etc/init.d/iptables start  <br/>
+  /etc/init.d/iptables restart</p>
+
+<p>参考： http://os.51cto.com/art/201103/249398.htm</p>
+
+<p>问题： 如何配置log？</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[take actions]]></title>

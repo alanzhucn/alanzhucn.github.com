@@ -5,14 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>about coding - Alanzhu's Blog</title>
+  <title>centos_apache_cannot_be_accessed_on_others_machine - Alanzhu's Blog</title>
   <meta name="author" content="AlanZHU">
 
   
-  <meta name="description" content="遐想一下， 语言设定一个 tricky 关键字 或者 符号， 在使用了tricky的地方， 用一下这个关键字，这样可以追踪tricky数目
-2。代码打分， 看代码的人可以给代码打分。
-代码就像微博一样。
-列表 队列 思考 ， reference, pointer 或者 index &hellip;">
+  <meta name="description" content="缘起：
+在VPS上面安装的CentOS装了个Apache，发现只能本地访问， 其他机器访问不了。 查找原因：
+开始猜测是否被墙了， 后来发现墙外也访问不了。 于是猜想是否是被访问墙挡住了。
+没有查到log， 尝试停止防火墙， /etc/init.d/iptables stop 下面是运行log / &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://alanzhucn.github.com/blog/2013/03/06/about-coding/">
+  <link rel="canonical" href="http://alanzhucn.github.com/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">About Coding</h1>
+      <h1 class="entry-title">Centos_apache_cannot_be_accessed_on_others_machine</h1>
     
     
       <p class="meta">
@@ -86,29 +86,69 @@
   
 
 
-<time datetime="2013-03-06T08:21:00+08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2013</time>
+<time datetime="2014-01-15T23:53:00+08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>遐想一下，</p>
+<div class="entry-content"><p>缘起：<br/>
+在VPS上面安装的CentOS装了个Apache，发现只能本地访问， 其他机器访问不了。</p>
+
+<p>查找原因：<br/>
+开始猜测是否被墙了， 后来发现墙外也访问不了。 于是猜想是否是被访问墙挡住了。
+没有查到log， 尝试停止防火墙，</p>
+
+<p>/etc/init.d/iptables stop</p>
+
+<p>下面是运行log</p>
+
+<h1>/etc/init.d/iptables stop</h1>
+
+<p>iptables: Setting chains to policy ACCEPT: filter nat      [  OK  ]
+iptables: Flushing firewall rules:                         [  OK  ]
+iptables: Unloading modules:                               [  OK  ]</p>
+
+<p>停止后发现可以访问， 定位成功。</p>
+
+<p>解决方法：</p>
+
+<p>修改iptables配置文件，添加80端口。原先开启了22端口给ssh，复制该行，把22改成80<br/>
+/etc/sysconfig/iptables</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT</p>
+
+<p>修改后：</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT
+-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p>修改后重启：</p>
+
+<p>/etc/init.d/iptables restart</p>
+
+<p>搞定。 修改过程中， 想过复制网上的解决办法，
+诸如： http://os.51cto.com/art/201103/249398.htm 提到的 <br/>
+-A RH-Firewall-1-INPUT -m state &#8211;state NEW -m tcp -p tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p> 修改后无效， 估计是参数次序问题。不如照葫芦画瓢，根据可用的配置来修改。</p>
+
+<p> 小结一下iptables配置和命令： 需要root权限 :)</p>
 
 <ol>
-<li>语言设定一个 tricky 关键字 或者 符号， 在使用了tricky的地方， 用一下这个关键字，这样可以追踪tricky数目
-2。代码打分， 看代码的人可以给代码打分。<br/>
-代码就像微博一样。</li>
-<li>列表 <br/>
-队列 思考   ， reference, pointer 或者 index
-
-<pre><code>   index最节省内存，也是通用性不高。
-</code></pre></li>
-<li>考虑<br/>
- 什么可以提高我们的开发效率 ： 哪些是瓶颈。<br/>
- 测试</li>
+<li><p>配置文件   /etc/sysconfig/iptables</p></li>
+<li><p>关闭、打开、重启 防火墙</p></li>
 </ol>
 
+
+<p>  /etc/init.d/iptables stop<br/>
+  /etc/init.d/iptables start  <br/>
+  /etc/init.d/iptables restart</p>
+
+<p>参考： http://os.51cto.com/art/201103/249398.htm</p>
+
+<p>问题： 如何配置log？</p>
 </div>
 
 
@@ -131,7 +171,7 @@
   
 
 
-<time datetime="2013-03-06T08:21:00+08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2013</time>
+<time datetime="2014-01-15T23:53:00+08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
       
 
 
@@ -139,7 +179,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alanzhucn.github.com/blog/2013/03/06/about-coding/" data-via="" data-counturl="http://alanzhucn.github.com/blog/2013/03/06/about-coding/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alanzhucn.github.com/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/" data-via="" data-counturl="http://alanzhucn.github.com/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/" >Tweet</a>
   
   
   
@@ -148,10 +188,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/03/04/github-how-to-delete-repository/" title="Previous Post: github: how to delete repository">&laquo; github: how to delete repository</a>
+        <a class="basic-alignment left" href="/blog/2013/06/28/take-actions/" title="Previous Post: take actions">&laquo; take actions</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/03/08/how-many-lines-of-codes-i-can-write-in-6-hours/" title="Next Post: how many lines of codes I can write in 6 hours">how many lines of codes I can write in 6 hours &raquo;</a>
       
     </p>
   </footer>

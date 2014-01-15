@@ -9,8 +9,10 @@
   <meta name="author" content="AlanZHU">
 
   
-  <meta name="description" content="Visit github more often.. 记得自己的方向。
-">
+  <meta name="description" content="缘起：
+在VPS上面安装的CentOS装了个Apache，发现只能本地访问， 其他机器访问不了。 查找原因：
+开始猜测是否被墙了， 后来发现墙外也访问不了。 于是猜想是否是被访问墙挡住了。
+没有查到log， 尝试停止防火墙， /etc/init.d/iptables stop 下面是运行log / &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +67,97 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/">Centos_apache_cannot_be_accessed_on_others_machine</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-15T23:53:00+08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>缘起：<br/>
+在VPS上面安装的CentOS装了个Apache，发现只能本地访问， 其他机器访问不了。</p>
+
+<p>查找原因：<br/>
+开始猜测是否被墙了， 后来发现墙外也访问不了。 于是猜想是否是被访问墙挡住了。
+没有查到log， 尝试停止防火墙，</p>
+
+<p>/etc/init.d/iptables stop</p>
+
+<p>下面是运行log</p>
+
+<h1>/etc/init.d/iptables stop</h1>
+
+<p>iptables: Setting chains to policy ACCEPT: filter nat      [  OK  ]
+iptables: Flushing firewall rules:                         [  OK  ]
+iptables: Unloading modules:                               [  OK  ]</p>
+
+<p>停止后发现可以访问， 定位成功。</p>
+
+<p>解决方法：</p>
+
+<p>修改iptables配置文件，添加80端口。原先开启了22端口给ssh，复制该行，把22改成80<br/>
+/etc/sysconfig/iptables</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT</p>
+
+<p>修改后：</p>
+
+<p>-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 22 -j ACCEPT
+-A INPUT -p tcp -m state &#8211;state NEW -m tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p>修改后重启：</p>
+
+<p>/etc/init.d/iptables restart</p>
+
+<p>搞定。 修改过程中， 想过复制网上的解决办法，
+诸如： http://os.51cto.com/art/201103/249398.htm 提到的 <br/>
+-A RH-Firewall-1-INPUT -m state &#8211;state NEW -m tcp -p tcp &#8211;dport 80 -j ACCEPT</p>
+
+<p> 修改后无效， 估计是参数次序问题。不如照葫芦画瓢，根据可用的配置来修改。</p>
+
+<p> 小结一下iptables配置和命令： 需要root权限 :)</p>
+
+<ol>
+<li><p>配置文件   /etc/sysconfig/iptables</p></li>
+<li><p>关闭、打开、重启 防火墙</p></li>
+</ol>
+
+
+<p>  /etc/init.d/iptables stop<br/>
+  /etc/init.d/iptables start  <br/>
+  /etc/init.d/iptables restart</p>
+
+<p>参考： http://os.51cto.com/art/201103/249398.htm</p>
+
+<p>问题： 如何配置log？</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,6 +615,10 @@ Albert Chan 137 6334 5384<br/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/15/centos-apache-cannot-be-accessed-on-others-machine/">centos_apache_cannot_be_accessed_on_others_machine</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/28/take-actions/">take actions</a>
       </li>
     
@@ -535,10 +632,6 @@ Albert Chan 137 6334 5384<br/>
     
       <li class="post">
         <a href="/blog/2013/03/04/github-how-to-delete-repository/">github: how to delete repository</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/03/03/guangzhou-toastmasters-club/">Guangzhou Toastmasters Club</a>
       </li>
     
   </ul>
@@ -555,7 +648,7 @@ Albert Chan 137 6334 5384<br/>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - AlanZHU -
+  Copyright &copy; 2014 - AlanZHU -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
